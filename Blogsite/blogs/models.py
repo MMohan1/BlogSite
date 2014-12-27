@@ -15,6 +15,7 @@ class Blog(models.Model):
     URL = models.URLField()
     Blog_Description = models.TextField()
     pub_date = models.DateTimeField('date published')
+    Like = models.IntegerField(default=0)
 
     def __str__(self):              # __unicode__ on Python 2
         return self.Blog_Title
