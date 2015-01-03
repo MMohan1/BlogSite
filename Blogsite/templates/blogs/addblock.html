@@ -1,0 +1,44 @@
+<h2>Welcome to add your blog page</h2>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+<form action="{% url 'blogs:index' %}" method="post">
+{% csrf_token %}
+<input type="hidden" id = "submit" value="save" />
+<fieldset>
+    <legend>Blog Details:</legend>
+<p><label for="id_name">Blog Title:</label>
+   <input type="text" name="blog_title" id="blog_title" value=" " >&nbsp;&nbsp;&nbsp;&nbsp;
+   <label for="id_name">Blog Field:</label>
+   <select name="value">
+        <option value=" ">Select One</option>
+        <option value="Genral">Genral</option>
+        <option value="Science">Science</option>
+        <option value="IT Sector">IT Sector</option>
+        <option value="History">History</option>
+        <option value="New Teachnology">New Teachnology</option>
+       </select>
+</p>
+</fieldset>
+
+<fieldset>
+<legend>Blog Description:</legend>
+<p><label for="url">URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+  <input type="url" name="url" id="url" value=" " >
+</p>
+<p>
+<label for="description">Blog Description:</label>
+  <textarea rows="4" cols="50" name="description" id="description" value=" "></textarea>
+<p>
+</fieldset>
+<fieldset>
+<legend>Date Information:</legend>
+<p>
+<label for="date">Date:</label>
+<input type="date" name="date"></p>
+</fieldset>
+<input type="submit" id = "submit" value="Submit" />
+</form>
+
+<a href="{% url 'blogs:index' %}">Start Page</a>
+
