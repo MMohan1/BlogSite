@@ -1,9 +1,16 @@
-<h1>{{ question.question_text }}</h1>
-
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+<h2>{{ blog.Blog_Title }} Details:<h2>
+<h3>Blog Title : {{ blog.Blog_Title }}</h3>
+<a>Field : {{blog.Blog_Field}}</a><br>
+<a>Description : {{blog.Blog_Description}}</a><br>
+<a href={{blog.URL}}>URL : {{blog.URL}}</a><br>
+{% for rec in blog.action_set.all %}
+<p><label for="id_name">User Name:</label>
+   <input type="text" name="user_name" id="user_name_{{blog.id}}" value="{{rec.User_Name}} " ></p>
+<p><label for="id_comment">Comment:</label>
+  <textarea rows="4" cols="50" name="comment" id="comment_{{blog.id}}" value="">{{rec.Comment}}</textarea><p>
+    
 {% endfor %}
-</ul>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+
+<a href="{% url 'blogs:detail' blog.id %}">Comment again?</a><br>
+<a href="{% url 'blogs:index' %}">Start Page</a>

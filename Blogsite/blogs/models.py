@@ -14,7 +14,7 @@ class Blog(models.Model):
         max_length=100, choices=BUILDING_MATERIALS, null=False)
     URL = models.URLField()
     Blog_Description = models.TextField()
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.CharField(max_length=40)
     Like = models.IntegerField(default=0)
 
     def __str__(self):              # __unicode__ on Python 2

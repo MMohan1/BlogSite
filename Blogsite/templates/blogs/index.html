@@ -1,9 +1,13 @@
+<h2>All Blogs are Listed here please click any one to get more information</h2>
+<h3>
 {% if latest_blog_list %}
     <ul>
     {% for blog in latest_blog_list %}
-        <li><a href="/blogs/{{ blog.id }}/">{{ blog.Blog_Title }}</a></li>
+        <li><a href="{% url 'blogs:detail' blog.id %}">{{ blog.Blog_Title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No blog are available.</p>
 {% endif %}
+</h3>
+<h2><a href="{% url 'blogs:addblock' %}">Add Blog</a></h2>

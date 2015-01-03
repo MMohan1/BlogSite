@@ -5,7 +5,7 @@
 <a>Description : {{blog.Blog_Description}}</a><br>
 <a href={{blog.URL}}>URL : {{blog.URL}}</a><br>
 <a>Likes : {{blog.Like}}</a><br>
-
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 <form action="{% url 'blogs:vote' blog.id %}" method="post">
 {% csrf_token %}
 <p><label for="id_name">User Name:</label>
@@ -15,3 +15,4 @@
 <input type="submit" id = "submit" value="Save" />
 <input type="submit" id = "submit_vote" value="Like And Save" />
 </form>
+<a href="{% url 'blogs:index' %}">Start Page</a>
